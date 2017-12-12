@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+def getVersionCodeProperty() {
+    def versionPropsFile = file('version.properties')
+    def versionProps = new Properties()
+    versionProps.load(versionPropsFile.newReader())
+    return versionProps.getProperty('VERSION_CODE').toInteger()
+}
+
+def getVersionNameProperty() {
+    def versionPropsFile = file('version.properties')
+    def versionProps = new Properties()
+    versionProps.load(versionPropsFile.newReader())
+    return versionProps.getProperty('VERSION_NAME')
+}
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "blog.com.blogstudy"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode getVersionCodeProperty()
+        versionName getVersionNameProperty()
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    Map<String, String> dependencies = rootProject.ext.dependencies
+
+    compile dependencies.appCompat
+    compile dependencies.cardView
+    compile dependencies.recyclerView
+    compile dependencies.design
+    compile dependencies.palette
+    compile dependencies.rxAndroid
+    compile dependencies.rxJava
+    compile dependencies.retrofit
+    compile dependencies.retrofitConverterGson
+    compile dependencies.retrofitAdapterRxJava
+    compile dependencies.constranintLayout
+    compile dependencies.glide
+
+}

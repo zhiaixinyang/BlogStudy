@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import blog.com.blogstudy.recyclerview.banner.BannerRlvActivity;
+import blog.com.blogstudy.recyclerview.banner.activity.BannerRlvActivity;
 
 public class MainActivity extends AppCompatActivity {
 

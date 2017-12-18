@@ -25,14 +25,20 @@
             android:name=".recyclerview.banner.activity.BannerRlvActivity"
             android:launchMode="singleTask" />
 
-        <activity android:name=".recyclerview.refresh.activity.RlvRefreshListActivity"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".recyclerview.refresh.activity.RlvRefreshListActivity"
+            android:launchMode="singleTask" />
 
-        <activity android:name=".recyclerview.refresh.activity.RlvRefreshWrapperActivity"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".recyclerview.refresh.activity.RlvRefreshWrapperActivity"
+            android:launchMode="singleTask" />
 
-        <activity android:name=".recyclerview.refresh.activity.RlvRefreshActivity"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".recyclerview.refresh.activity.RlvRefreshActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".recyclerview.zhihuad.RlvZhiHuAdActivity"
+            android:launchMode="singleTask" />
 
     </application>
 

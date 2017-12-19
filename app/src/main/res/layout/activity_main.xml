@@ -12,7 +12,15 @@
         android:text="Banner"
         android:textAllCaps="false" />
 
-
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        android:textAllCaps="false"
+        android:layout_below="@+id/btn_zhihu_ad"
+        />
 
     <Button
         android:id="@+id/btn_zhihu_ad"
@@ -22,3 +30,4 @@
         android:text="知乎广告"
         android:textAllCaps="false" />
 </RelativeLayout>
+

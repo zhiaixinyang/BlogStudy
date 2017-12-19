@@ -28,7 +28,6 @@ import blog.com.blogstudy.recyclerview.refresh.wrapper.LoadMoreWrapper;
  */
 
 public class RlvRefreshWrapperActivity extends AppCompatActivity{
-    private Toolbar toolbar;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private LoadMoreWrapper loadMoreWrapper;
@@ -43,12 +42,8 @@ public class RlvRefreshWrapperActivity extends AppCompatActivity{
     }
 
     private void init() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        // 使用Toolbar替换ActionBar
-        setSupportActionBar(toolbar);
 
         // 设置刷新控件颜色
         swipeRefreshLayout.setColorSchemeColors(Color.parseColor("#4DB6AC"));

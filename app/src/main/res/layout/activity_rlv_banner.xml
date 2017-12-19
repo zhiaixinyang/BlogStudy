@@ -11,7 +11,8 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:orientation="horizontal"/>
+        app:orientation="horizontal"
+        app:showIndicator="false"/>
 
 
     <blog.com.blogstudy.recyclerview.banner.view.RecyclerViewBannerMz
@@ -21,8 +22,6 @@
         android:layout_marginTop="20dp"
         app:orientation="vertical"
         app:showIndicator="false"/>
-
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

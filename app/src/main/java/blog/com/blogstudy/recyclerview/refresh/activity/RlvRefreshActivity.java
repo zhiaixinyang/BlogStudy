@@ -27,7 +27,6 @@ import blog.com.blogstudy.recyclerview.refresh.listener.EndlessRecyclerOnScrollL
  */
 
 public class RlvRefreshActivity extends AppCompatActivity {
-    private Toolbar toolbar;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private LoadMoreAdapter loadMoreAdapter;
@@ -42,12 +41,8 @@ public class RlvRefreshActivity extends AppCompatActivity {
     }
 
     private void init() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        // 使用Toolbar替换ActionBar
-        setSupportActionBar(toolbar);
 
         // 设置刷新控件颜色
         swipeRefreshLayout.setColorSchemeColors(Color.parseColor("#4DB6AC"));
@@ -58,16 +53,13 @@ public class RlvRefreshActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(loadMoreAdapter);
 
-        // 设置下拉刷新
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // 刷新数据
                 dataList.clear();
                 getData();
                 loadMoreAdapter.notifyDataSetChanged();
 
-                // 延时1s关闭下拉刷新
                 swipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -75,18 +67,15 @@ public class RlvRefreshActivity extends AppCompatActivity {
                             swipeRefreshLayout.setRefreshing(false);
                         }
                     }
-                }, 1000);
+                }, 2000);
             }
         });
 
-        // 设置加载更多监听
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {
                 loadMoreAdapter.setLoadState(loadMoreAdapter.LOADING);
-
                 if (dataList.size() < 52) {
-                    // 模拟获取网络数据，延时1s
                     new Timer().schedule(new TimerTask() {
                         @Override
                         public void run() {
@@ -98,9 +87,8 @@ public class RlvRefreshActivity extends AppCompatActivity {
                                 }
                             });
                         }
-                    }, 1000);
+                    }, 2000);
                 } else {
-                    // 显示加载到底的提示
                     loadMoreAdapter.setLoadState(loadMoreAdapter.LOADING_END);
                 }
             }

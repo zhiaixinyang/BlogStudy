@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".recyclerview.banner.activity.BannerNormalActivity"
+            android:name=".recyclerview.banner.activity.RlvBannerNormalActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".recyclerview.banner.activity.BannerRlvActivity"
+            android:name=".recyclerview.banner.activity.RlvBannerRlvActivity"
             android:launchMode="singleTask" />
 
         <activity

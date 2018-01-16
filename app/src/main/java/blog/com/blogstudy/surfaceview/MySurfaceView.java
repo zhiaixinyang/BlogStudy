@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -20,9 +21,14 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     private Path mPath;
     private boolean isDrawing;
     private int mLastX, mLastY;
+    private Canvas mCanvas;
 
     public MySurfaceView(Context context) {
-        super(context);
+        super(context, null);
+    }
+
+    public MySurfaceView(Context context, AttributeSet attrs) {
+        super(context, attrs);
         init();
     }
 
@@ -33,6 +39,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         mPaint = new Paint();
         mPaint.setStrokeWidth(10);
         mPaint.setColor(Color.BLACK);
+        mPaint.setStyle(Paint.Style.STROKE);
 
         mPath = new Path();
     }
@@ -56,8 +63,17 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void run() {
         while (isDrawing) {
-            Canvas canvas = mHolder.lockCanvas();
-            canvas.drawPath(mPath, mPaint);
+            try {
+                if (mCanvas != null) {
+                    mCanvas = mHolder.lockCanvas();
+                    mCanvas.drawColor(Color.WHITE);
+                    mCanvas.drawPath(mPath, mPaint);
+                }
+            } finally {
+                if (mCanvas != null) {
+                    mHolder.unlockCanvasAndPost(mCanvas);
+                }
+            }
         }
     }
 
@@ -87,6 +103,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 break;
             }
         }
-        return super.onTouchEvent(event);
+        return true;
     }
 }

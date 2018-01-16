@@ -1,6 +1,7 @@
 package blog.com.blogstudy.recyclerview.zhihuad;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;

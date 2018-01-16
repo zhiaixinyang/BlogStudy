@@ -297,7 +297,6 @@ public class PullExtendLayout extends LinearLayout implements IPullToExtend {
                     handled = true;
                     if (null != mHeaderLayout && 0 != mHeaderHeight) {
                         mHeaderLayout.setState(IExtendLayout.State.RESET);
-
                     }
                 } else {
                     mIsHandledTouchEvent = false;
@@ -641,7 +640,6 @@ public class PullExtendLayout extends LinearLayout implements IPullToExtend {
             if (mStartTime == -1) {
                 mStartTime = System.currentTimeMillis();
             } else {
-
                 final long oneSecond = 1000;    // SUPPRESS CHECKSTYLE
                 long normalizedTime = (oneSecond * (System.currentTimeMillis() - mStartTime)) / mDuration;
                 normalizedTime = Math.max(Math.min(normalizedTime, oneSecond), 0);

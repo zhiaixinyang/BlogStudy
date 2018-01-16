@@ -12,7 +12,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import blog.com.blogstudy.MainActivity;
 import blog.com.blogstudy.R;
 
 /**

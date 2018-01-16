@@ -19,15 +19,52 @@
         android:layout_height="wrap_content"
         android:text="Refresh"
         android:textAllCaps="false"
-        android:layout_below="@+id/btn_zhihu_ad"
+        android:layout_below="@+id/btn_banner"
         />
 
     <Button
         android:id="@+id/btn_zhihu_ad"
-        android:layout_below="@+id/btn_banner"
+        android:layout_below="@+id/btn_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="知乎广告"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_right_mark"
+        android:layout_below="@+id/btn_zhihu_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="对号动画"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_surfaceview"
+        android:layout_below="@+id/btn_right_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SurfaceView简单Demo"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_opengl"
+        android:layout_below="@+id/btn_surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OpenGL谷歌Demo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_path"
+        android:layout_below="@+id/btn_opengl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Path用法"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_leaf_loading"
+        android:layout_below="@+id/btn_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="叶子Loading"
         android:textAllCaps="false" />
 </RelativeLayout>
 

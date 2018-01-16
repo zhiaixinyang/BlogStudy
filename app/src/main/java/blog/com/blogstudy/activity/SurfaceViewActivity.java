@@ -1,8 +1,10 @@
-package blog.com.blogstudy;
+package blog.com.blogstudy.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import blog.com.blogstudy.R;
 
 /**
  * Created by admin on 18/1/16.

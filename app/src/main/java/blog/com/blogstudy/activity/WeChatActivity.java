@@ -1,4 +1,4 @@
-package blog.com.blogstudy;
+package blog.com.blogstudy.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import blog.com.blogstudy.R;
 import blog.com.blogstudy.pullextend.ExtendListHeader;
 import blog.com.blogstudy.pullextend.PullExtendLayout;
 import blog.com.blogstudy.utils.ExtendHeadAdapter;

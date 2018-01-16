@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".opengl.google.OpenGLGoogleActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,8 +41,26 @@
             android:launchMode="singleTask" />
 
 
-        <activity android:name=".note.activity.BActivity"
-            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".note.activity.BActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".activity.SurfaceViewActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".opengl.google.OpenGLGoogleActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.RightMarkActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.PathActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.LeafLoadingActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

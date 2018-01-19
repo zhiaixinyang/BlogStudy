@@ -20,4 +20,16 @@
         </attr>
         <attr name="autoPlaying" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="MyCircleView">
+
+        <attr name="cub_color" format="color"/>
+        <attr name="cub_hover_color" format="color"/>
+        <attr name="cub_border_color" format="color"/>
+        <attr name="cub_icon" format="integer"/>
+        <attr name="cub_border_radius" format="dimension" />
+        <attr name="cub_fontstyle" format="string"/>
+        <attr name="cub_riple_effect" format="boolean"></attr>
+
+    </declare-styleable>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <blog.com.blogstudy.view.circlebutton.CuboidButton
+        android:id="@+id/btn_circle"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:text="BBB"
+        android:textColor="@android:color/white"
+        app:cub_border_color="#8e8e8e"
+        app:cub_border_radius="4dp"
+        app:cub_color="#292929"
+        app:cub_hover_color="#000000"
+        app:cub_riple_effect="true"/>
+</LinearLayout>

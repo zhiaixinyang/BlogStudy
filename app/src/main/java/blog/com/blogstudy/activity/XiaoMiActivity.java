@@ -3,18 +3,17 @@ package blog.com.blogstudy.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import blog.com.blogstudy.R;
 
 /**
- * Created by MDove on 18/1/19.
+ * Created by admin on 18/1/23.
  */
 
-public class CuboidBtnActivity extends AppCompatActivity {
+public class XiaoMiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuboidbtn);
+        setContentView(R.layout.activity_xiaomi);
     }
 }

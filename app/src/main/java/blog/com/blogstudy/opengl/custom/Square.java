@@ -1,4 +1,4 @@
-package blog.com.blogstudy.opengl;
+package blog.com.blogstudy.opengl.custom;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

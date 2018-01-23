@@ -1,4 +1,4 @@
-package blog.com.blogstudy.opengl;
+package blog.com.blogstudy.opengl.custom;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -39,11 +39,9 @@ public class Triangle {
         indexBuffer= ByteBuffer.allocateDirect(indices.length);
         indexBuffer.put(indices);
         indexBuffer.position(0);
-
     }
 
     public void draw(GL10 gl){
-
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
         gl.glVertexPointer(3,GL10.GL_FLOAT,0,vertexBuffer);
 

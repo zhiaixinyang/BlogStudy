@@ -27,7 +27,8 @@ import blog.com.blogstudy.R;
  * <p>
  * 原项目GitHub：https://github.com/ChaosOctopus/ChaosCompass
  * <p>
- * MDove 修改兼容问题
+ *
+ *     MDove 修改兼容问题
  */
 
 public class ChaosCompassView extends View {

@@ -50,10 +50,17 @@
         android:layout_height="wrap_content"
         android:text="OpenGL谷歌Demo"
         android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_opengl_custom"
+        android:layout_below="@+id/btn_opengl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义OpenGL实现"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_path"
-        android:layout_below="@+id/btn_opengl"
+        android:layout_below="@+id/btn_opengl_custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Path用法"
@@ -65,6 +72,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="叶子Loading"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_xiaomi_view"
+        android:layout_below="@+id/btn_leaf_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="小米内置的钟表效果"
         android:textAllCaps="false" />
 </RelativeLayout>
 

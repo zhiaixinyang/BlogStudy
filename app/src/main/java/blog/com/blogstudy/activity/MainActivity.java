@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import blog.com.blogstudy.R;
+import blog.com.blogstudy.opengl.custom.CustomOpenGLActivity;
 import blog.com.blogstudy.opengl.google.OpenGLGoogleActivity;
 import blog.com.blogstudy.recyclerview.zhihuad.RlvZhiHuAdActivity;
 import blog.com.blogstudy.recyclerview.banner.activity.RlvBannerRlvActivity;
@@ -63,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LeafLoadingActivity.class));
+            }
+        });
+        findViewById(R.id.btn_xiaomi_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, XiaoMiActivity.class));
+            }
+        });
+        findViewById(R.id.btn_opengl_custom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CustomOpenGLActivity.class));
             }
         });
     }

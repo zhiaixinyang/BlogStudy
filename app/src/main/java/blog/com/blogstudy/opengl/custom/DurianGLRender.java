@@ -1,4 +1,4 @@
-package blog.com.blogstudy.opengl;
+package blog.com.blogstudy.opengl.custom;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -26,9 +26,6 @@ public class DurianGLRender implements GLSurfaceView.Renderer {
 
         triangle=new Triangle();
         square=new Square();
-
-        //ctriangle=new org.durian.durianopengl1.draw2d.color.Triangle();
-        //csquare=new org.durian.durianopengl1.draw2d.color.Square();
 
     }
     @Override
@@ -69,17 +66,12 @@ public class DurianGLRender implements GLSurfaceView.Renderer {
 
         gl.glLoadIdentity();
         gl.glTranslatef(-3.0f,0.0f,-6.0f);
+        gl.glRotatef(30, 1, 0, 0);
+        GLU.gluLookAt(gl,0,0,500,0,0,200,upX,upY,upZ);
         triangle.draw(gl);
 
         gl.glTranslatef(3.0f,0.0f,1.0f);
         square.draw(gl);
-
-        gl.glTranslatef(-5.0f,0.0f,-6.0f);
-        //ctriangle.draw(gl);
-
-        gl.glTranslatef(5.0f,0.0f,1.0f);
-        //csquare.draw(gl);
-
     }
 
 }

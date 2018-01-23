@@ -25,7 +25,8 @@ import java.util.Calendar;
  * <p>
  * 原项目GitHub：https://github.com/ChaosOctopus/ChaosCompass
  * <p>
- * MDove 修改兼容问题
+ *
+ *     MDove 修改兼容问题
  */
 
 public class OclockView extends View {

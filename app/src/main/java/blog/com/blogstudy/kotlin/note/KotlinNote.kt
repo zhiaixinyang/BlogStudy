@@ -33,13 +33,16 @@ abstract class KotlinNote constructor(override val name: String, val age: Int) :
      */
 
     val TAG = "KotlinNote"
-    //属性age/name可以直接使用
+    //属性age/name可以直接使用(val不可再重复赋值，var可以)
     val i: Int = age
+    var ii: Int? = null
     val d: Double = i.toDouble()
     //延时加载，只在被调用的时候被初始化(默认是线程安全的，为了性能可以手动关闭)
     val no: Int by lazy(LazyThreadSafetyMode.NONE) {
         666
     }
+    //声明一个为null的对象（在自己使用的时候再初始化）
+    lateinit var av: String
 
     //伴生函数调用（java中的static）
     val aaa = BaseKotlinNote.create()
@@ -50,6 +53,7 @@ abstract class KotlinNote constructor(override val name: String, val age: Int) :
         val derived = IKotlinImpl()
         //此时的create本质调用的是IKotlinImpl中的create()的实现
         val abc = KotlinDerived(derived).create()
+        ii = 33;
     }
 
     fun when1() {

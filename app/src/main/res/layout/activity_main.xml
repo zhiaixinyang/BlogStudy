@@ -80,5 +80,12 @@
         android:layout_height="wrap_content"
         android:text="小米内置的钟表效果"
         android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btn_kotlin"
+        android:layout_below="@+id/btn_xiaomi_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kotlin实践"
+        android:textAllCaps="false" />
 </RelativeLayout>
 

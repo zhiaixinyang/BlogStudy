@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import blog.com.blogstudy.R;
+import blog.com.blogstudy.kotlin.KotlinActivity;
 import blog.com.blogstudy.opengl.custom.CustomOpenGLActivity;
 import blog.com.blogstudy.opengl.google.OpenGLGoogleActivity;
 import blog.com.blogstudy.recyclerview.zhihuad.RlvZhiHuAdActivity;
@@ -76,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CustomOpenGLActivity.class));
+            }
+        });
+        findViewById(R.id.btn_kotlin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, KotlinActivity.class));
             }
         });
     }

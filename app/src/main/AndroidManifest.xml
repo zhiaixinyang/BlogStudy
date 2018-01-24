@@ -26,22 +26,18 @@
             android:name=".recyclerview.banner.activity.RlvBannerRlvActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".recyclerview.refresh.activity.RlvRefreshListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".opengl.custom.CustomOpenGLActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".recyclerview.refresh.activity.RlvRefreshWrapperActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".recyclerview.refresh.activity.RlvRefreshActivity"
             android:launchMode="singleTask"
@@ -50,8 +46,6 @@
             android:name=".recyclerview.zhihuad.RlvZhiHuAdActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name=".note.activity.BActivity"
             android:launchMode="singleInstance"
@@ -68,19 +62,20 @@
             android:name=".activity.RightMarkActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.PathActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.LeafLoadingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.XiaoMiActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".kotlin.KotlinActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
     </application>

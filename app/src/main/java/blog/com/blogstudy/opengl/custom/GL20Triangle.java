@@ -111,4 +111,16 @@ public class GL20Triangle {
         // 禁用顶点数组
         GLES20.glDisableVertexAttribArray(mPositionHandle);
     }
+    private int mMVPMatrixHandle;
+    //接收组合后的变换矩阵，并将它应用到图形上
+    public void draw(float[] mvpMatrix) {
+        // 得到形状的变换矩阵的引用
+        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
+        // 将投影和视图转换传递给着色器
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
+        // 画三角形
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
+        // 释放资源
+        GLES20.glDisableVertexAttribArray(mPositionHandle);
+    }
 }

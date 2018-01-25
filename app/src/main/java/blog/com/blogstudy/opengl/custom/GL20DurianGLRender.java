@@ -4,6 +4,7 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
+import android.opengl.Matrix;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -18,6 +19,10 @@ public class GL20DurianGLRender implements GLSurfaceView.Renderer {
 
     private GL20Triangle mTriangle;
 
+    private final float[] mMVPMatrix = new float[16];
+    private final float[] mProjectionMatrix = new float[16];
+    private final float[] mViewMatrix = new float[16];
+
     public GL20DurianGLRender(Context context) {
         mContext = context;
     }
@@ -29,11 +34,24 @@ public class GL20DurianGLRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
+        GLES20.glViewport(0, 0, width, height);
+
+        float ratio = (float) width / height;
+
+        // 此投影矩阵应用于onDrawFrame（）方法中的对象坐标
+        Matrix.frustumM(mProjectionMatrix, 0, -ratio, ratio, -1, 1, 3, 7);
     }
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        mTriangle.draw();
+        // 设置相机位置 (View matrix)
+        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+
+        // 计算投影和视图变换
+        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
+
+        // 绘制形状
+        mTriangle.draw(mMVPMatrix);
     }
 
     /**

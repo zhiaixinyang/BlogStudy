@@ -1,6 +1,7 @@
 package blog.com.blogstudy.opengl.custom;
 
 import android.content.Context;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
 
@@ -8,7 +9,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created by admin on 18/1/15.
+ * Created by MDove on 18/1/15.
  */
 
 public class DurianGLRender implements GLSurfaceView.Renderer {
@@ -80,6 +81,19 @@ public class DurianGLRender implements GLSurfaceView.Renderer {
 
         gl.glTranslatef(3.0f, 0.0f, 1.0f);
         square.draw(gl);
+    }
+
+    public static int loadShader(int type, String shaderCode){
+
+        // 创建一个顶点着色器类型（GLES20.GL_VERTEX_SHADER）
+        // 或者片段(fragment)着色器类型 (GLES20.GL_FRAGMENT_SHADER)
+        int shader = GLES20.glCreateShader(type);
+
+        // 将源代码添加到着色器并编译它
+        GLES20.glShaderSource(shader, shaderCode);
+        GLES20.glCompileShader(shader);
+
+        return shader;
     }
 
 }

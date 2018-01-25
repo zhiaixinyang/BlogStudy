@@ -1,5 +1,7 @@
 package blog.com.blogstudy.opengl.custom;
 
+import android.opengl.GLES20;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -7,7 +9,7 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created by admin on 18/1/15.
+ * Created by MDove on 18/1/15.
  */
 
 public class Triangle {
@@ -18,10 +20,16 @@ public class Triangle {
     private FloatBuffer vertexBuffer;
     private ByteBuffer indexBuffer;
 
-    private float[] vertices={
-            0.0f,1.0f,0.0f,
-            -1.0f,-1.0f,0.0f,
-            1.0f,-1.0f,0.0f
+    /**
+     * 坐标系中:
+     *     [0, 0, 0]代表View的中心
+     *     [1, 1, 0]对应的是右上角
+     *     [-1, -1, 0]对应的则是左下角
+     */
+    private float[] vertices={//按逆时针顺序
+            0.0f,1.0f,0.0f,//上
+            -1.0f,-1.0f,0.0f,//左
+            1.0f,-1.0f,0.0f//右
     };
     private byte[] indices={0,1,2};
 
@@ -33,7 +41,7 @@ public class Triangle {
         vertexBuffer=vbb.asFloatBuffer();
         //将给定float[]数据从当前位置开始，依次写入此缓冲区
         vertexBuffer.put(vertices);
-        //设置此缓冲区的位置。如果标记已定义并且大于新的位置，则要丢弃该标记。
+        //设置缓冲区来读取第一个坐标（如果标记已定义并且大于新的位置，则要丢弃该标记）
         vertexBuffer.position(0);
 
         indexBuffer= ByteBuffer.allocateDirect(indices.length);

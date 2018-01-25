@@ -1,91 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_banner"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Banner"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_refresh"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Refresh"
-        android:textAllCaps="false"
-        android:layout_below="@+id/btn_banner"
-        />
+        <Button
+            android:id="@+id/btn_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Banner"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_zhihu_ad"
-        android:layout_below="@+id/btn_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="知乎广告"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_right_mark"
-        android:layout_below="@+id/btn_zhihu_ad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="对号动画"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_surfaceview"
-        android:layout_below="@+id/btn_right_mark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SurfaceView简单Demo"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_opengl"
-        android:layout_below="@+id/btn_surfaceview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OpenGL谷歌Demo"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_opengl_custom"
-        android:layout_below="@+id/btn_opengl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义OpenGL实现"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_banner"
+            android:gravity="center"
+            android:text="Refresh"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_path"
-        android:layout_below="@+id/btn_opengl_custom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Path用法"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_zhihu_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_refresh"
+            android:text="知乎广告"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_leaf_loading"
-        android:layout_below="@+id/btn_path"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="叶子Loading"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_xiaomi_view"
-        android:layout_below="@+id/btn_leaf_loading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="小米内置的钟表效果"
-        android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_kotlin"
-        android:layout_below="@+id/btn_xiaomi_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kotlin实践"
-        android:textAllCaps="false" />
-</RelativeLayout>
+        <Button
+            android:id="@+id/btn_right_mark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_zhihu_ad"
+            android:text="对号动画"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_surfaceview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_right_mark"
+            android:text="SurfaceView简单Demo"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_opengl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_surfaceview"
+            android:text="OpenGL谷歌Demo"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_opengl_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_opengl"
+            android:text="自定义OpenGL实现"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_opengl_custom"
+            android:text="Path用法"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_leaf_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_path"
+            android:text="叶子Loading"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_xiaomi_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_leaf_loading"
+            android:text="小米内置的钟表效果"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_kotlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_xiaomi_view"
+            android:text="Kotlin实践"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_bitmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_kotlin"
+            android:text="Bitmap的操作"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</ScrollView>
 

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import blog.com.blogstudy.opengl.custom.renderer.DurianGLRender;
-import blog.com.blogstudy.opengl.custom.renderer.GL20DurianGLRender;
 import blog.com.blogstudy.opengl.custom.renderer.GLRenderer;
 
 /**

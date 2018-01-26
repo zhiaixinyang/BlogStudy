@@ -48,7 +48,7 @@
             android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_opengl"
+            android:id="@+id/btn_opengl_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_surfaceview"
@@ -59,17 +59,27 @@
             android:id="@+id/btn_opengl_custom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_opengl"
+            android:layout_below="@+id/btn_opengl_google"
             android:text="自定义OpenGL实现"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_opengl_3d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_opengl_custom"
+            android:text="OpenGL 3D模型展示"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_opengl_custom"
+            android:layout_below="@+id/btn_opengl_3d"
             android:text="Path用法"
             android:textAllCaps="false" />
+
+
 
         <Button
             android:id="@+id/btn_leaf_loading"

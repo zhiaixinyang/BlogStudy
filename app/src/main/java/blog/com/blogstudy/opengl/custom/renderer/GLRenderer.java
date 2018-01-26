@@ -67,13 +67,25 @@ public class GLRenderer implements GLSurfaceView.Renderer {
         //将三角形在z轴上移动
         gl.glTranslatef(0f, 0.0f, -2.0f);
 
-        // 设置三角形
+        /**
+         * 设置三角形
+         * 参数含义：
+         *     1、每个顶点由几个数值描述（x,y,z三点描述一个顶点，所以是3）
+         *     2、数组中每个顶点的坐标类型
+         *     3、数组中每个顶点间的间隔，步长（字节位移）。取值若为0，表示数组是连续的
+         *     4、坐标的Buffer
+         */
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, mTriangleBuffer);
-        // 设置三角形颜色
+        // 设置三角形颜色 （设置颜色数组，各参数和上述类似。A,R,G,B表示一个颜色，所以是4）
         gl.glColorPointer(4, GL10.GL_FLOAT, 0, mColorBuffer);
-        // 绘制三角形
+        /**
+         * 绘制三角形
+         * 绘制数组中对应的顶点
+         *    1、选择绘制模式
+         *    2、从Buffer哪个位置开始绘制
+         *    3、一共绘制多少个顶点
+         */
         gl.glDrawArrays(GL10.GL_TRIANGLES, 0, 3);
-
 
         // 取消颜色设置
         gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
@@ -106,7 +118,6 @@ public class GLRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         // 设置白色为清屏
         gl.glClearColor(1, 1, 1, 1);
-
     }
 }
 

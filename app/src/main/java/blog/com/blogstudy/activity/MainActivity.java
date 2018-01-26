@@ -8,6 +8,7 @@ import android.view.View;
 import blog.com.blogstudy.R;
 import blog.com.blogstudy.kotlin.KotlinActivity;
 import blog.com.blogstudy.opengl.custom.CustomOpenGLActivity;
+import blog.com.blogstudy.opengl.custom.show3d.OpenGL3DActivity;
 import blog.com.blogstudy.opengl.google.OpenGLGoogleActivity;
 import blog.com.blogstudy.recyclerview.zhihuad.RlvZhiHuAdActivity;
 import blog.com.blogstudy.recyclerview.banner.activity.RlvBannerRlvActivity;
@@ -44,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SurfaceViewActivity.class));
             }
         });
-        findViewById(R.id.btn_opengl).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_opengl_3d).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, OpenGL3DActivity.class));
+            }
+        });
+        findViewById(R.id.btn_opengl_google).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, OpenGLGoogleActivity.class));

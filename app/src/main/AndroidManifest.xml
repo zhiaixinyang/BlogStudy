@@ -29,6 +29,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".opengl.custom.show3d.OpenGL3DActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".recyclerview.banner.activity.RlvBannerRlvActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />

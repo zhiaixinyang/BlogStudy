@@ -1,9 +1,8 @@
-package blog.com.blogstudy.opengl.custom;
+package blog.com.blogstudy.opengl.custom.renderer;
 
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.opengl.GLU;
 import android.opengl.Matrix;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -45,13 +44,14 @@ public class GL20DurianGLRender implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         // 设置相机位置 (View matrix)
-        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+//        Matrix.setLookAtM(mViewMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 
         // 计算投影和视图变换
-        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
+//        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 
         // 绘制形状
-        mTriangle.draw(mMVPMatrix);
+//        mTriangle.draw(mMVPMatrix);
+        mTriangle.draw();
     }
 
     /**

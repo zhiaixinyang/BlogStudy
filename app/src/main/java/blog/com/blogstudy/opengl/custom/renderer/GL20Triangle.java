@@ -1,12 +1,10 @@
-package blog.com.blogstudy.opengl.custom;
+package blog.com.blogstudy.opengl.custom.renderer;
 
 import android.opengl.GLES20;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-
-import javax.microedition.khronos.opengles.GL10;
 
 /**
  * Created by MDove on 18/1/25.
@@ -18,7 +16,6 @@ public class GL20Triangle {
      * 因此，为了保险起见，在将数据传递给OpenGL之前，我们需要指明使用本机的存储顺序。
      */
     private FloatBuffer vertexBuffer;
-    private ByteBuffer indexBuffer;
 
     /**
      * 坐标系中:
@@ -26,14 +23,14 @@ public class GL20Triangle {
      * [1, 1, 0]对应的是右上角
      * [-1, -1, 0]对应的则是左下角
      */
-    private float[] vertices = {//按逆时针顺序
-            0.0f, 1.0f, 0.0f,//上
-            -1.0f, -1.0f, 0.0f,//左
-            1.0f, -1.0f, 0.0f//右
+    private float[] triangleCoords = {//按逆时针顺序
+            0.0f,  0.622008459f, 0.0f,//上
+            -0.5f, -0.311004243f, 0.0f,//左
+            0.5f, -0.311004243f, 0.0f//右
     };
-    private byte[] triangleCoords = {0, 1, 2};
     //设置颜色坐标，对应A、R、G、B
     float color[] = {0.63671875f, 0.76953125f, 0.22265625f, 1.0f};
+
     private final static int COORDS_PER_VERTEX = 3;
     private final int vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
     private final int vertexStride = COORDS_PER_VERTEX * 4;
@@ -57,18 +54,14 @@ public class GL20Triangle {
 
     public GL20Triangle() {
         //先初始化buffer，数组的长度*4，因为一个float占4个字节
-        ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length * 4);
+        ByteBuffer vbb = ByteBuffer.allocateDirect(triangleCoords.length * 4);
         //以本机字节顺序来修改此缓冲区的字节顺序
         vbb.order(ByteOrder.nativeOrder());
         vertexBuffer = vbb.asFloatBuffer();
         //将给定float[]数据从当前位置开始，依次写入此缓冲区
-        vertexBuffer.put(vertices);
+        vertexBuffer.put(triangleCoords);
         //设置缓冲区来读取第一个坐标（如果标记已定义并且大于新的位置，则要丢弃该标记）
         vertexBuffer.position(0);
-
-        indexBuffer = ByteBuffer.allocateDirect(triangleCoords.length);
-        indexBuffer.put(triangleCoords);
-        indexBuffer.position(0);
 
         int vertexShader = GL20DurianGLRender.loadShader(GLES20.GL_VERTEX_SHADER,
                 vertexShaderCode);

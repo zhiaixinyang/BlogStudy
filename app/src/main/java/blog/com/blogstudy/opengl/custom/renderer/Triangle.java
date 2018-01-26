@@ -1,6 +1,4 @@
-package blog.com.blogstudy.opengl.custom;
-
-import android.opengl.GLES20;
+package blog.com.blogstudy.opengl.custom.renderer;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

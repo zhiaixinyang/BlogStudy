@@ -1,4 +1,4 @@
-package blog.com.blogstudy.opengl.custom.show3d;
+package blog.com.blogstudy.opengl.custom;
 
 import android.app.ActivityManager;
 import android.content.pm.ConfigurationInfo;
@@ -8,9 +8,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import blog.com.blogstudy.R;
+import blog.com.blogstudy.opengl.custom.renderer.GLRenderer;
+import blog.com.blogstudy.opengl.custom.show3d.view.GL3DRenderer;
+import blog.com.blogstudy.opengl.custom.show3d.view.GL3DView;
 
 /**
  * Created by admin on 18/1/26.
@@ -21,21 +25,41 @@ public class OpenGL3DActivity extends AppCompatActivity {
     private GLSurfaceView glView;
     private float rotateDegreen = 0;
     private GL3DRenderer gl3DRenderer;
+    private SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkSupported();
-
+        setContentView(R.layout.activity_opengl_3d);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
         if (supportsEs2) {
-            glView = new GLSurfaceView(this);
+            glView = (GL3DView) findViewById(R.id.glView);
             gl3DRenderer = new GL3DRenderer(this);
             glView.setRenderer(gl3DRenderer);
-            setContentView(glView);
+
         } else {
-            setContentView(R.layout.activity_main);
             Toast.makeText(this, "当前设备不支持OpenGL ES 2.0!", Toast.LENGTH_SHORT).show();
         }
+        seekBar.setMax(100);
+
+        seekBar.setProgress(80);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                gl3DRenderer.setScale(1f * progress / 100);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     public void rotate(float degree) {
@@ -74,8 +98,6 @@ public class OpenGL3DActivity extends AppCompatActivity {
                 }
             }.start();
         }
-
-
     }
 
     private void checkSupported() {

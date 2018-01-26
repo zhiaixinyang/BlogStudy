@@ -1,6 +1,7 @@
 package blog.com.blogstudy.opengl.custom.show3d.utils;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +31,7 @@ public class STLReader {
         InputStream is = context.getAssets().open(fileName);
         return parserBinStl(is);
     }
+
     //解析二进制的Stl文件
     public Model3D parserBinStl(InputStream in) throws IOException {
         if (stlLoadListener != null)
@@ -154,5 +156,81 @@ public class STLReader {
         void onFinished();
 
         void onFailure(Exception e);
+    }
+
+    private void parseTexture(Model3D model, byte[] textureBytes) {
+        int facetCount = model.getFacetCount();
+        // 三角面个数有三个顶点，一个顶点对应纹理二维坐标
+        float[] textures = new float[facetCount * 3 * 2];
+        int textureOffset = 0;
+        for (int i = 0; i < facetCount * 3; i++) {
+            //第i个顶点对应的纹理坐标
+            //tx和ty的取值范围为[0,1],表示的坐标位置是在纹理图片上的对应比例
+            float tx = Util.byte4ToFloat(textureBytes, textureOffset);
+            float ty = Util.byte4ToFloat(textureBytes, textureOffset + 4);
+
+            textures[i * 2] = tx;
+            //我们的pxy文件原点是在左下角，因此需要用1减去y坐标值
+            textures[i * 2 + 1] = 1 - ty;
+
+            textureOffset += 8;
+        }
+        model.setTextures(textures);
+    }
+
+    public Model3D parseStlWithTexture(InputStream stlInput, InputStream textureInput) throws IOException {
+        Model3D model = parseBinStl(stlInput);
+        int facetCount = model.getFacetCount();
+        // 三角面片有3个顶点，一个顶点有2个坐标轴数据，每个坐标轴数据是float类型（4字节）
+        byte[] textureBytes = new byte[facetCount * 3 * 2 * 4];
+        textureInput.read(textureBytes);// 将所有纹理坐标读出来
+        parseTexture(model, textureBytes);
+        return model;
+    }
+
+    public Model3D parseBinStl(InputStream in) throws IOException {
+        if (stlLoadListener != null)
+            stlLoadListener.onstart();
+        Model3D model = new Model3D();
+        //前面80字节是文件头，用于存贮文件名；
+        in.skip(80);
+
+        //紧接着用 4 个字节的整数来描述模型的三角面片个数
+        byte[] bytes = new byte[4];
+        in.read(bytes);// 读取三角面片个数
+        int facetCount = Util.byte4ToInt(bytes, 0);
+        model.setFacetCount(facetCount);
+        if (facetCount == 0) {
+            in.close();
+            return model;
+        }
+
+        // 每个三角面片占用固定的50个字节
+        byte[] facetBytes = new byte[50 * facetCount];
+        // 将所有的三角面片读取到字节数组
+        in.read(facetBytes);
+        //数据读取完毕后，可以把输入流关闭
+        in.close();
+
+
+        parseModel(model, facetBytes);
+
+        if (stlLoadListener != null)
+            stlLoadListener.onFinished();
+        return model;
+    }
+
+    public Model3D parseBinStlInAssets(Context context, String fileName) throws IOException {
+        InputStream is = context.getAssets().open(fileName);
+        return parseBinStl(is);
+    }
+
+    public Model3D parserStlWithTextureInAssets(Context context, String name) throws IOException {
+        AssetManager am = context.getAssets();
+        InputStream stlInput = am.open(name + ".stl");
+        InputStream textureInput = am.open(name + ".pxy");
+        Model3D model = parseStlWithTexture(stlInput, textureInput);
+        model.setPictureName(name + ".jpg");
+        return model;
     }
 }

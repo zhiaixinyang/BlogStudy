@@ -29,7 +29,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".opengl.custom.show3d.OpenGL3DActivity"
+            android:name=".opengl.custom.OpenGL3DActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity

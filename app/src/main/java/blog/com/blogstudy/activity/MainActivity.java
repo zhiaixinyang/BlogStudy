@@ -8,7 +8,7 @@ import android.view.View;
 import blog.com.blogstudy.R;
 import blog.com.blogstudy.kotlin.KotlinActivity;
 import blog.com.blogstudy.opengl.custom.CustomOpenGLActivity;
-import blog.com.blogstudy.opengl.custom.show3d.OpenGL3DActivity;
+import blog.com.blogstudy.opengl.custom.OpenGL3DActivity;
 import blog.com.blogstudy.opengl.google.OpenGLGoogleActivity;
 import blog.com.blogstudy.recyclerview.zhihuad.RlvZhiHuAdActivity;
 import blog.com.blogstudy.recyclerview.banner.activity.RlvBannerRlvActivity;

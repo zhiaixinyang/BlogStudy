@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -21,7 +20,7 @@ public class OpenGL3DActivity extends AppCompatActivity {
     private boolean supportsEs2;
     private GLSurfaceView glView;
     private float rotateDegreen = 0;
-    private GLRenderer glRenderer;
+    private GL3DRenderer gl3DRenderer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,8 @@ public class OpenGL3DActivity extends AppCompatActivity {
 
         if (supportsEs2) {
             glView = new GLSurfaceView(this);
-            glRenderer = new GLRenderer(this);
-            glView.setRenderer(glRenderer);
+            gl3DRenderer = new GL3DRenderer(this);
+            glView.setRenderer(gl3DRenderer);
             setContentView(glView);
         } else {
             setContentView(R.layout.activity_main);
@@ -40,7 +39,7 @@ public class OpenGL3DActivity extends AppCompatActivity {
     }
 
     public void rotate(float degree) {
-        glRenderer.rotate(degree);
+        gl3DRenderer.rotate(degree);
         glView.invalidate();
     }
 
